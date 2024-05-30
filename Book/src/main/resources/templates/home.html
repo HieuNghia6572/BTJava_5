@@ -5,9 +5,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+    <link th:href="https://fonts.googleapis.com/css?family=Raleway:400,900i" rel="stylesheet">
+    <link th:href="https://fonts.googleapis.com/css?family=Comfortaa:400,700" rel="stylesheet">
 </head>
 <body>
 <div layout:fragment="content" class="row">
+    <div class="">
+        <div th:each="course : ${listcourse}" >
+            <div style="text-align: center;
+            box-sizing: border-box;
+            height: 150px;
+            width: 130px;
+            border-radius: 10%;
+            border: 10px solid #A6EDE2;
+            box-shadow: 2px 2px 2px #324376, -2px 2px 2px #324376, -2px -2px 2px #324376, 2px -2px 2px #324376;
+            margin-top: 5%;    padding-top: 60px;
+            background: #DDF8E8;
+            font-size: 30px;
+            font-weight: 900;text-align: center;
+  box-sizing: border-box;
+  border-radius: 10%;
+
+   margin-top: 5%; " th:text="${course.getStartDate()}"></div>
+        </div>
+    </div>
     <ul>
         <li th:each="course : ${listcourse}" th:text="${course.getStartDate()} + ' - '
                                              + ${course.getLectureName()} + ', '
