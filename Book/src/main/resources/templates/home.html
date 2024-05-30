@@ -10,6 +10,14 @@
 </head>
 <body>
 <div layout:fragment="content" class="row">
+    <ul>
+        <li th:each="course : ${listcourse}" th:text="${course.getStartDate()} + ' - '
+                                             + ${course.getLectureName()} + ', '
+                                             + ${course.getPlace()}"></li>
+    </ul>
+
+
+
     <div class="">
         <div th:each="course : ${listcourse}" >
             <div style="text-align: center;
@@ -29,11 +37,6 @@
    margin-top: 5%; " th:text="${course.getStartDate()}"></div>
         </div>
     </div>
-    <ul>
-        <li th:each="course : ${listcourse}" th:text="${course.getStartDate()} + ' - '
-                                             + ${course.getLectureName()} + ', '
-                                             + ${course.getPlace()}"></li>
-    </ul>
 </div>
 </body>
 </html>
