@@ -8,27 +8,28 @@
 </head>
 <body>
 <div layout:fragment="content" class="container body-content">
-    <form th:action="@{/course/create}"
+    <form th:action="@{/course/add}"
           th:object="${course}" method="post" class="form">
         <div class="form-group">
-            <lable for="name">Place</lable>
-            <input class="form-control" type="text" th:field="*{place}" id="name" placeholder="Place">
+            <label for="place">Place</label>
+            <input type="text" class="form-control" id="place" th:field="*{place}" placeholder="Place">
+            <div th:if="${#fields.hasErrors('place')}" th:errors="*{place}" class="text-danger"></div>
         </div>
 
         <div class="form-group">
-            <label for="startDate">Start Date</label>
-            <input class="form-control" type="date" id="startDate" th:field="*{startDate}" placeholder="image">
-            <div class="invalid-feedback"></div>
+            <label for="startDate">Start Date:</label>
+            <input type="date" class="form-control" id="startDate" th:field="*{startDate}" placeholder="startDate">
+            <div th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}" class="text-danger"></div>
         </div>
 
         <div class="form-group">
-            <lable for="lectureName">Lecture:</lable>
-            <input class="form-control" type="text" th:field="*{lectureName}" id="lectureName" placeholder="LectureName">
+            <label class="form-label" for="teacherName">Lecture</label>
+            <input type="text" class="form-control" id="teacherName" th:field="*{teacherName}" placeholder="TeacherName">
+            <div th:if="${#fields.hasErrors('teacherName')}" th:errors="*{teacherName}" class="text-danger"></div>
         </div>
         <input type="submit" class="btn btn-success" value="Add">
     </form>
 </div>
-
 </body>
 </html>
 <script>

@@ -40,19 +40,23 @@
 </head>
 <body>
 <div layout:fragment="content" class="row">
-    <ul>
-        <li th:each="course : ${listcourse}" class="course-item">
+    <ul th:each="course : ${course}" >
+        <li class="course-item">
             <div class="date-box">
                 <div class="day" th:text="${#temporals.format(course.startDate, 'd')}"></div>
                 <div class="month" th:text="${#temporals.format(course.startDate, 'MMMM')}"></div>
                 <div class="year" th:text="${#temporals.format(course.startDate, 'yyyy')}"></div>
             </div>
             <div>
-                <span th:text="${course.lectureName}"></span>,
-                <span th:text="${course.place}"></span>
+                <p th:text="${course.teacherName}"></p>
+                <p th:text="${course.place}"></p>
             </div>
+
         </li>
+        <a class="btn text-primary"  th:href="@{/course/edit/{id}(id=${course.id})}" >Edit</a>
+        <a class="btn text-primary" th:href="@{/course/delete/{id}(id=${course.id})}" onclick="return confirm('Are you sure?')">Delete</a>
     </ul>
+
 </div>
 </body>
 </html>
