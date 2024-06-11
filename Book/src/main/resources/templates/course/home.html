@@ -44,7 +44,7 @@
         <li class="course-item">
             <div class="date-box">
                 <div class="day" th:text="${#temporals.format(course.startDate, 'd')}"></div>
-                <div class="month" th:text="${#temporals.format(course.startDate, 'MMMM')}"></div>
+                <div class="month" th:text="${#temporals.format(course.startDate, 'MMMM','en')}"></div>
                 <div class="year" th:text="${#temporals.format(course.startDate, 'yyyy')}"></div>
             </div>
             <div>
